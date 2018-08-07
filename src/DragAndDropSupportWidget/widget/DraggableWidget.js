@@ -91,10 +91,12 @@ require([
         },
 
         _updateRendering: function () {
-            $(this.domNode.parentElement).attr({
-                "data-object-type" : this._contextObj.getEntity(),
-                "data-object-guid" : this._contextObj.getGuid()
-            });
+            if ( this._contextObj ) {
+               $(this.domNode.parentElement).attr({
+                  "data-object-type" : this._contextObj.getEntity(),
+                  "data-object-guid" : this._contextObj.getGuid()
+               });
+            }
         },
 
         _resetSubscriptions: function () {
