@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <widget id="DragAndDropSupportWidget.widget.DraggableWidget" needsEntityContext="true" xmlns="http://www.mendix.com/widget/1.0/">
-  <name>DraggableWidget</name>
-  <description>Draggable widget.</description>
+    <name>DraggableWidget</name>
+    <description>Draggable widget</description>
 
-  <icon>
-iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAi0lEQVRYw+2WwQ7AIAhDreH/f7k7mRijk2AIZoOTh1UfWHAgyRIYtQRHAiSAtAUA0watiSx6khdVYMxoF6uMNfpe+00TAlB7wrUCGggXgN4HOwg5zWD8ZqYBsDTnfW2obamW6TiIZoPpbZ/qbb7dXHC9As1QkqiD7zWh9VW06sMrgPwrToAESIDfAzwsEC9SZeBQXwAAAABJRU5ErkJggg==
-</icon>
+    <icon>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAi0lEQVRYw+2WwQ7AIAhDreH/f7k7mRijk2AIZoOTh1UfWHAgyRIYtQRHAiSAtAUA0watiSx6khdVYMxoF6uMNfpe+00TAlB7wrUCGggXgN4HOwg5zWD8ZqYBsDTnfW2obamW6TiIZoPpbZ/qbb7dXHC9As1QkqiD7zWh9VW06sMrgPwrToAESIDfAzwsEC9SZeBQXwAAAABJRU5ErkJggg==</icon>
 
-  <properties>
+    <properties>
         <property key="draggableClass" type="string" required="true" defaultValue="Draggable">
             <caption>Draggable class</caption>
             <category>Drag</category>
@@ -23,7 +21,5 @@ iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAi0lEQVRYw+2WwQ7AIAhDreH/f7k7mRij
             <category>Drag</category>
             <description>Drag a clone of the element rather than the element itself.</description>
         </property>
-
-	</properties>
+    </properties>
 </widget>
-

@@ -1,13 +1,11 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <widget id="DragAndDropSupportWidget.widget.DroppableWidget" needsEntityContext="true" xmlns="http://www.mendix.com/widget/1.0/">
-  <name>DroppableWidget</name>
-  <description>Droppable widget.</description>
+    <name>DroppableWidget</name>
+    <description>Droppable widget</description>
 
-  <icon>
-iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAhElEQVRYw+2XUQrAMAhDG/H+V3ZfgzJGmRpwgn5bfA3RWpiZrcKQVRwDMADqPQAgXXRvvH4KvN0io15/EwJI+YKmQBRCmI6OQFAUyEBoVM5TDoDPXfLPOXCiv2/+zNkV8cwIYXeAd0BJZXGqB6KbnVYV7v8aMvaCngqwvxGzlA7AAJQDXHioK1AH0yA0AAAAAElFTkSuQmCC
-  </icon>
+    <icon>iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAhElEQVRYw+2XUQrAMAhDG/H+V3ZfgzJGmRpwgn5bfA3RWpiZrcKQVRwDMADqPQAgXXRvvH4KvN0io15/EwJI+YKmQBRCmI6OQFAUyEBoVM5TDoDPXfLPOXCiv2/+zNkV8cwIYXeAd0BJZXGqB6KbnVYV7v8aMvaCngqwvxGzlA7AAJQDXHioK1AH0yA0AAAAAElFTkSuQmCC</icon>
 
-  <properties>
+    <properties>
         <property key="dropTargetClass" type="string" required="true" defaultValue="DropTarget">
             <caption>Target class</caption>
             <category>Drop</category>
@@ -61,6 +59,5 @@ iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAhElEQVRYw+2XUQrAMAhDG/H+V3ZfgzJG
                 </property>
             </properties>
         </property>
-	</properties>
+    </properties>
 </widget>
-

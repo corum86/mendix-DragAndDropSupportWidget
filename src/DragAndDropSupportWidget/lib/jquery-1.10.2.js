@@ -10,6 +10,11 @@
  * http://jquery.org/license
  *
  * Date: 2013-07-03T13:48Z
+ * 
+ * Modified by Marcus Groen.
+ * Removed global logic and forced noConflict() to return the local jQuery.
+ * Date: 2017-11-20
+ * 
  */
 
 (function( window, undefined ) {
@@ -382,14 +387,6 @@ jQuery.extend({
 	expando: "jQuery" + ( core_version + Math.random() ).replace( /\D/g, "" ),
 
 	noConflict: function( deep ) {
-		if ( window.$ === jQuery ) {
-			window.$ = _$;
-		}
-
-		if ( deep && window.jQuery === jQuery ) {
-			window.jQuery = _jQuery;
-		}
-
 		return jQuery;
 	},
 
@@ -9772,8 +9769,7 @@ if ( typeof module === "object" && module && typeof module.exports === "object" 
 	// upon in the Node module world.
 	module.exports = jQuery;
 } else {
-	// Otherwise expose jQuery to the global object as usual
-	window.jQuery = window.$ = jQuery;
+	// Removed global logic
 
 	// Register as a named AMD module, since jQuery can be concatenated with other
 	// files that may use define, but not via a proper concatenation script that
