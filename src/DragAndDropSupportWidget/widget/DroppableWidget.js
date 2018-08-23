@@ -41,7 +41,7 @@ require( [
             // http://api.jqueryui.com/droppable/
             var args = {
                 accept: this.acceptSelector || "*",
-                reedy: true,
+                greedy: true,
                 hoverClass: this.dropTargetHoverClass,
                 drop: function (event, ui) {
                     self._drop(event, ui);
