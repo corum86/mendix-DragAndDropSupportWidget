@@ -9,7 +9,12 @@
         <property key="draggableClass" type="string" required="true" defaultValue="Draggable">
             <caption>Draggable class</caption>
             <category>Drag</category>
-            <description>The CSS class(ses) to be put on the element. Separate classes using a space</description>
+            <description>The CSS class(ses) to be put on the element. Separate classes using a space. ".draggable" is set by default</description>
+        </property>
+        <property key="delay" type="integer" required="true" defaultValue="0">
+            <caption>Drag delay in milliseconds</caption>
+            <category>Drag</category>
+            <description>Delay before drag event starts for touch devices</description>
         </property>
         <property key="dragContainment" type="string" required="false" defaultValue="">
             <caption>Drag containment CSS selector</caption>

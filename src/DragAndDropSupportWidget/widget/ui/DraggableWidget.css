@@ -1,15 +1,23 @@
-.Draggable.ui-draggable.ui-draggable-handle,
-.Draggable.ui-draggable.ui-draggable-handle label {
+.draggable.ui-draggable.ui-draggable-handle,
+.draggable.ui-draggable.ui-draggable-handle label {
     cursor: move;
 }
 
-.Draggable.ui-draggable.ui-draggable-dragging {
+.draggable.ui-draggable.ui-draggable-dragging {
     box-shadow: 0px 1px 3px #444;
     background-color: white;
     z-index:1;
     cursor: move;
 }
 
-.Draggable.ui-draggable.ui-draggable-dragging label {
+.draggable.ui-draggable.ui-draggable-dragging label {
     cursor: move;
+}
+
+.draggable:not(.ui-draggable-dragging) {
+    border: 2px solid #fff;
+    transition: border 1s;
+}
+.draggable.drag-start:not(.ui-draggable-dragging) {
+    border: 2px solid #004489;
 }
