@@ -22,6 +22,7 @@ require([
 
         postCreate: function () {
             this._setupEvents();
+            this._setupCSS();
         },
 
         update: function (object, callback) {
@@ -39,53 +40,38 @@ require([
                 containment: this.dragContainment || false,
                 revert: "invalid",
                 helper: this.makeClone ? "clone" : "original",
-                disabled: true
+                start: ( event ) => $(event.target).addClass('drag-start dragged'),
+                stop: ( event ) => $(event.target).removeClass('dragged drag-start')
             };
             parentElem
                 .addClass('draggable ' + this.draggableClass)
                 .draggable(options);
-            let timeout;
-            setTimeout(() => {
-                parentElem.draggable('disable');
-            }, 0);
 
-            parentElem.on('touchstart', (event) => {
-                if (parentElem.hasClass('dragged')) {
-                    return;
-                }
-                parentElem.addClass('drag-start');
-                timeout = setTimeout(function () {
-                    parentElem.draggable('enable').addClass('dragged');
-                    parentElem.trigger(event);
-                }, this.delay);
-            }).on('touchmove', () => {
-                if (!parentElem.hasClass('dragged')) {
-                    clearTimeout(timeout);
-                    parentElem.removeClass('drag-start');
-                }
-            }).on('touchend', () => {
-                clearTimeout(timeout);
-                parentElem.removeClass('dragged').removeClass('drag-start').draggable('disable');
-            });
-
-            /*parentElem.on('mousedown', (event) => {
-                if (parentElem.hasClass('dragged')) {
-                    return;
-                }
-                parentElem.addClass('drag-start');
-                timeout = setTimeout(function () {
-                    parentElem.draggable('enable').addClass('dragged');
-                    parentElem.trigger(event);
+            if ($('body').hasClass('profile-phone')) {
+                let timeout;
+                setTimeout(() => {
+                    parentElem.draggable('disable');
                 }, 0);
-            }).on('mousemove', () => {
-                if (!parentElem.hasClass('dragged')) {
+
+                parentElem.on('touchstart', (event) => {
+                    if (parentElem.hasClass('dragged')) {
+                        return;
+                    }
+                    parentElem.addClass('drag-start');
+                    timeout = setTimeout(function () {
+                        parentElem.draggable('enable').addClass('dragged');
+                        parentElem.trigger(event);
+                    }, this.delay);
+                }).on('touchmove', () => {
+                    if (!parentElem.hasClass('dragged')) {
+                        clearTimeout(timeout);
+                        parentElem.removeClass('drag-start');
+                    }
+                }).on('touchend', () => {
                     clearTimeout(timeout);
-                    parentElem.removeClass('drag-start');
-                }
-            }).on('mouseup', () => {
-                clearTimeout(timeout);
-                parentElem.removeClass('dragged').removeClass('drag-start').draggable('disable');
-            });*/
+                    parentElem.removeClass('dragged').removeClass('drag-start').draggable('disable');
+                });
+            }
         },
 
         _setDataAttributes: function () {
@@ -99,7 +85,15 @@ require([
             if ($(this.domNode.parentElement).data('ui-draggable')) {
                 $(this.domNode.parentElement).draggable(this._contextObject ? "enable" : "disable");
             }
-        }
+        },
 
+        _setupCSS() {
+            $('.draggable:not(.ui-draggable-dragging)').css({
+                transition: `border ${this.delay / 2}ms ease-in`
+            });
+            $('.draggable.drag-start:not(.ui-draggable-dragging)').css({
+                transition: `border ${this.delay}ms ease-out`
+            })
+        }
     });
 });

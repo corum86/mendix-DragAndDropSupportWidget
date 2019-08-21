@@ -160,12 +160,13 @@ require( [
         },
 
         _moveDraggedNodeBack: function () {
-            let classes = '.' + this._dropData.draggable[0].className.replace(/\s/g, '.');
-            $(classes).each(function () {
-                if(this.nextSibling === null && !$(this).hasClass('ui-draggable-disabled')) {
-                    $(this).draggable('disable');
-                }
-            });
+            if ($('body').hasClass('profile-phone')) {
+                $('.draggable').each(function () {
+                    if (this.nextSibling === null && !$(this).hasClass('ui-draggable-disabled')) {
+                        $(this).draggable('disable');
+                    }
+                });
+            }
             if (this._dropData.draggable.draggable("option", "helper") === "original") {
                 // When the original item is dragged, it must be returned to its original position.
                 // Mendix does not recreate widgets when refreshing lists but just updates existing widgets where possible and creates new ones when necessary.

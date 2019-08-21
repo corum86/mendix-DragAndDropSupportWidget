@@ -42,8 +42,9 @@
             return;
         }
 
-        event.preventDefault();
-
+        if (event.cancelable) {
+            event.preventDefault();
+        }
         var touch = event.originalEvent.changedTouches[0],
             simulatedEvent = document.createEvent('MouseEvents');
 
